@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         }
 
         if (empty($errors)) {
-            db()->prepare("UPDATE users SET password?,updated_at=NOW() WHERE id=?")
+            db()->prepare("UPDATE users SET password=?,updated_at=NOW() WHERE id=?")
                 ->execute([Security::hashPassword($new), $user['id']]);
             $success = true;
         }
@@ -38,11 +38,11 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
 <?php if ($success): ?>
 <div class="alert alert-success"><i class="bi bi-check-circle-fill me-2"></i>Password changed successfully.</div>
 <?php else: ?>
-<?php if ($errors): ?><div class="alert alert-danger"><ul class="mb-0"><?php foreach($errors as $e): ?><li><? Security::e($e) ?></li><?php endforeach; ?></ul></div><?php endif; ?>
+<?php if ($errors): ?><div class="alert alert-danger"><ul class="mb-0"><?php foreach($errors as $e): ?><li><?= Security::e($e) ?></li><?php endforeach; ?></ul></div><?php endif; ?>
 <div class="card">
     <div class="card-body p-4">
         <form method="POST">
-            <? Security::csrfField() ?>
+            <?= Security::csrfField() ?>
             <div class="mb-3">
                 <label class="form-label">Current Password</label>
                 <input type="password" class="form-control" name="current_password" required>
