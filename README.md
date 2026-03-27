@@ -35,7 +35,7 @@ A modern, secure web-based incident reporting and management system built with P
 - 🌙 Clean sidebar-free layout
 - ⚡ Live search with debounce
 - 💪 Password strength meter
-- 🔔 Quto-polling notifications (every 60s)
+- 🔔 Auto-polling notifications (every 60s)
 - ⏱️ Relative timestamps (e.g. "2 hours ago")
 - 🏷️ Priority and status badges
 - 🖱️ Confirmation dialogs for destructive actions
@@ -81,8 +81,8 @@ IncidentReportSystem/
 │   ├── auth.php          # Authentication class
 │   ├── security.php      # Security class (CSRF, hashing, sanitization)
 │   ├── functions.php     # Helper functions
-│   ├── header.php        # Shared header/navbar
-│   └── footer.php        # Shared footer
+│   ├── header.php      # Shared header/navbar
+│   └── footer.php       # Shared footer
 ├── incidents/
 │   ├── list.php          # Incident list with search/filter
 │   ├── create.php        # Report new incident
